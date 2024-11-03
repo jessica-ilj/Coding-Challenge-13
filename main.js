@@ -1,7 +1,7 @@
 // Fetch Products from the API Using Fetch and Promises
 let fetchProducts = new Promise(function(resolve, reject) {
     console.log("Fetching products from API...");
-    fetch('https://www.course-api.com/javascript-store-product') 
+    fetch('https://www.course-api.com/javascript-store-products') 
         .then(response => {  
             if (response.ok) {            // Check if the response is ok
                 return response.json();
