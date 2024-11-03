@@ -18,3 +18,34 @@ let fetchProducts = new Promise(function(resolve, reject) {
 });
 
 
+// Display Product Details Dynamically
+fetchProducts
+    .then(products => {
+        const productContainer = document.getElementById("product-container");
+
+        products.forEach(product => {
+            // Create and append product elements dynamically
+            const productDiv = document.createElement("div");
+            productDiv.classList.add("product");
+
+            const img = document.createElement("img");
+            img.src = product.image;
+            img.alt = product.name;
+            productDiv.appendChild(img);
+
+            const companyName = document.createElement("h3");
+            companyName.textContent = product.company;
+            productDiv.appendChild(companyName);
+
+            const productName = document.createElement("p");
+            productName.textContent = product.name;
+            productDiv.appendChild(productName);
+
+            const price = document.createElement("p");
+            price.textContent = `$${product.price}`;
+            productDiv.appendChild(price);
+
+            productContainer.appendChild(productDiv);
+        });
+    })
+
