@@ -48,4 +48,9 @@ fetchProducts
             productContainer.appendChild(productDiv);
         });
     })
+//handle errors
 
+.catch(error => {
+        console.log(error.message);
+        document.getElementById("product-container").textContent = error.message;
+    });
